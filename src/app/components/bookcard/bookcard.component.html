@@ -1,7 +1,7 @@
-  <div class="card">
-    <img src="{{libro.image}}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{libro.title}}</h5>
+  <div class="card m-2 h-100" routerLink="libri/{{libro.id}}">
+    <img src="{{libro.image}}" class="card-img-top flex-grow-1">
+    <div class="card-body flex-grow-0 flex-shrink-0">
+        <h5 class="card-title"> {{libro.title}} </h5>
         <h6>{{libro.authors.join(' - ')}}</h6>
         <p class="card-text">{{libro.description}}</p>
     </div>

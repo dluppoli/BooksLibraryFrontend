@@ -1,1 +1,15 @@
-<p>bookdetail works!</p>
+<div *ngIf="libro" class="container d-flex my-5">
+    <div class="d-flex flex-column w-25">
+        <img src="{{libro.image}}">
+        <div class="d-flex h1 justify-content-between my-3 text-warning">
+            <i *ngFor="let i of [1,2,3,4,5]" class="bi" [class.bi-star]="!libro.stars || libro.stars<i" [class.bi-star-fill]="libro.stars && libro.stars>=i"></i>
+        </div>
+    </div>
+    
+    <div class="d-flex flex-column justify-content-center m-5">
+        <h1>{{libro.title}}</h1>
+        <p><b>{{libro.authors.join(' - ')}}</b></p>
+        <p><i>{{libro.categories.join(' - ')}}</i></p>
+        <p>{{libro.description}}</p>
+    </div>
+</div>

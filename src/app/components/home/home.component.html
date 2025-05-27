@@ -6,7 +6,7 @@
                     (click)="setCardView(!cardView)"></i>
 </div>
 
-<div *ngIf="cardView==true"  class="container d-flex justify-content-between">
+<div *ngIf="cardView==true"  class="container d-flex justify-content-start">
 
     <ng-container *ngIf="libreria.length>0">
         <ng-container *ngFor="let libro of libreria">
@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let libro of libreria">
+            <tr *ngFor="let libro of libreria" routerLink="libri/{{libro.id}}">
                 <td>{{libro.title}}</td>
                 <td>{{libro.authors.join(' - ')}}</td>
             </tr>

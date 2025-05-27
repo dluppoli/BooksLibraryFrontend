@@ -18,7 +18,7 @@ export class BookService {
     { 
       id:2, isbn:'78901234',title:'Eruption',authors:['James Patterson','Michael Crichton'],
       categories:['Azione'],image:'http://books.google.com/books/content?id=o9AKEQAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&source=gbs_api',
-      description: 'lorem ipsum', stars:0, readingState:'Da Leggere'
+      description: 'lorem ipsum', stars:3, readingState:'Da Leggere'
     }
   ]
 
