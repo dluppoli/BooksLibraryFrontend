@@ -10,7 +10,7 @@
 
     <ng-container *ngIf="libreria.length>0">
         <ng-container *ngFor="let libro of libreria">
-            <app-bookcard [libro]="libro"></app-bookcard>
+            <app-bookcard class="w-25" [libro]="libro"></app-bookcard>
         </ng-container>
     </ng-container>
 
@@ -22,12 +22,14 @@
             <tr>
                 <th>Titolo</th>
                 <th>Autori</th>
+                <th>Generi</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let libro of libreria" routerLink="libri/{{libro.id}}">
                 <td>{{libro.title}}</td>
                 <td>{{libro.authors.join(' - ')}}</td>
+                <td>{{libro.categories.join(' - ')}}</td>
             </tr>
         </tbody>
     </table>
