@@ -1,6 +1,17 @@
 <div class="container d-flex justify-content-end my-5">
     <!--<i class="bi bi-table mx-3" [class.d-none]="!cardView"  (click)="setCardView(false)"></i>
     <i class="bi bi-border-all" [class.d-none]="cardView" (click)="setCardView(true)"></i>-->
+
+    <select class="mx-3" [(ngModel)]="filtroAutore" (change)="loadData()">
+        <option value="-">Tutti</option>
+        <option *ngFor="let autore of autori" value="{{autore}}">{{autore}}</option>
+    </select>
+
+    <select [(ngModel)]="filtroCategoria" (change)="loadData()">
+        <option value="-">Tutti</option>
+        <option *ngFor="let categoria of categorie" value="{{categoria}}">{{categoria}}</option>
+    </select>    
+
     <i class="bi"   [class.bi-table]="cardView"
                     [class.bi-border-all]="!cardView"
                     (click)="setCardView(!cardView)"></i>
