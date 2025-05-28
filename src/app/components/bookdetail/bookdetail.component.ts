@@ -18,6 +18,9 @@ export class BookdetailComponent {
   constructor(  private route: ActivatedRoute, 
                 private bookService:BookService)
   {
-    this.libro = bookService.getOne(+this.route.snapshot.params["id"])
+    bookService.getOne(+this.route.snapshot.params["id"]).subscribe({
+      next: r => this.libro = r,
+      error: e => alert("Errore")
+    })
   }
 }

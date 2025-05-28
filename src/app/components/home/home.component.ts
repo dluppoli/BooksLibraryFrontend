@@ -24,8 +24,8 @@ export class HomeComponent {
   
 
   constructor(private bookService:BookService){ 
-    this.autori = this.bookService.getAuthors();
-    this.categorie = this.bookService.getCategories();
+    this.bookService.getAuthors().subscribe(r => this.autori = r)
+    this.bookService.getCategories().subscribe(r => this.categorie = r)
     this.loadData();
   }
 
@@ -36,9 +36,10 @@ export class HomeComponent {
 
   loadData()
   {
-    this.libreria = this.bookService
-                    .getAll()
-                    .filter(b => this.filtroAutore=='-' || b.authors.includes(this.filtroAutore))
-                    .filter(b => this.filtroCategoria=='-' || b.categories.includes(this.filtroCategoria))
+    this.bookService.getAll(this.filtroAutore,this.filtroCategoria).subscribe(r => {
+      this.libreria=r
+    });
+
+                    
   }
 }
