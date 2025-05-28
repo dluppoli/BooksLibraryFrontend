@@ -46,7 +46,7 @@ export class BookService {
 
   update(l:Book)
   {
-
+    return this.http.put<Book>(environment.apiUrl+'/libri/'+l.id, l)
   }
 
   getAuthors():Observable<string[]>
@@ -57,5 +57,10 @@ export class BookService {
   getCategories():Observable<string[]>
   {
     return this.http.get<string[]>(environment.apiUrl+'/generi')
+  }
+
+  getReadingStates():Observable<string[]>
+  {
+    return this.http.get<string[]>(environment.apiUrl+'/statilettura')
   }
 }
