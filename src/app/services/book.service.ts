@@ -36,7 +36,7 @@ export class BookService {
 
   delete(id:number)
   {
-
+    return this.http.delete(environment.apiUrl+'/libri/'+id)
   }
 
   add(l:Book)

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/Book';
 import { CommonModule } from '@angular/common';
@@ -13,13 +13,22 @@ import { CommonModule } from '@angular/common';
 })
 export class BookdetailComponent {
 
-  libro:Book | undefined;
+  libro!:Book;
 
   constructor(  private route: ActivatedRoute, 
+                private router : Router,
                 private bookService:BookService)
   {
     bookService.getOne(+this.route.snapshot.params["id"]).subscribe({
       next: r => this.libro = r,
+      error: e => alert("Errore")
+    })
+  }
+
+  deleteBook()
+  {
+    this.bookService.delete(this.libro.id).subscribe({
+      next: r =>  this.router.navigate(['']), 
       error: e => alert("Errore")
     })
   }
