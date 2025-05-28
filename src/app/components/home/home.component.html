@@ -17,7 +17,7 @@
                     (click)="setCardView(!cardView)"></i>
 </div>
 
-<div *ngIf="cardView==true"  class="container d-flex justify-content-start">
+<div *ngIf="cardView==true"  class="container d-flex flex-wrap justify-content-start">
 
     <ng-container *ngIf="libreria.length>0">
         <ng-container *ngFor="let libro of libreria">
