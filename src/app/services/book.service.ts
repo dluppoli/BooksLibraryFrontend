@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/Book';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -70,6 +70,7 @@ export class BookService {
 
     return this.http.get<Book[]>(`https://www.googleapis.com/books/v1/volumes?q=+isbn:${isbn}`)
     .pipe(
+      tap(r => console.log(r)),
       map( (r:any) => r.items.map( (item:any) => {
         return {
           id:0,
