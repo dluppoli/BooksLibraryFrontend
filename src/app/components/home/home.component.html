@@ -7,7 +7,7 @@
         <option *ngFor="let autore of autori" value="{{autore}}">{{autore}}</option>
     </select>
 
-    <select [(ngModel)]="filtroCategoria" (change)="loadData()">
+    <select class="mx-3" [(ngModel)]="filtroCategoria" (change)="loadData()">
         <option value="-">Tutti</option>
         <option *ngFor="let categoria of categorie" value="{{categoria}}">{{categoria}}</option>
     </select>    
@@ -21,7 +21,7 @@
 
     <ng-container *ngIf="libreria.length>0">
         <ng-container *ngFor="let libro of libreria">
-            <app-bookcard class="w-25" [libro]="libro"></app-bookcard>
+            <app-bookcard [libro]="libro"></app-bookcard>
         </ng-container>
     </ng-container>
 

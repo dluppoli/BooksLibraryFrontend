@@ -1,0 +1,29 @@
+<div class="container">
+    
+    <div class="my-5 text-center">
+        <input class="w-50" type="text" [(ngModel)]="isbn" >
+        <button class="mx-3 btn btn-primary" (click)="search()">Cerca</button>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Copertina</th>
+                <th>Titolo</th>
+                <th>Autori</th>
+                <th>Generi</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let risultato of risultati">
+                <td><img src="{{risultato.image}}" alt=""></td>
+                <td>{{risultato.title}}</td>
+                <td>{{risultato.authors.join(' - ')}}</td>
+                <td>{{risultato.categories.join(' - ')}}</td>
+                <td class="text-center"><i class="bi bi-plus-circle-fill text-success h3" (click)="add(risultato)"></i></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

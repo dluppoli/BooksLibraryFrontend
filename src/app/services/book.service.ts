@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/Book';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class BookService {
 
   add(l:Book)
   {
-
+    return this.http.post<Book>(environment.apiUrl+'/libri', l)
   }
 
   update(l:Book)
@@ -62,5 +62,27 @@ export class BookService {
   getReadingStates():Observable<string[]>
   {
     return this.http.get<string[]>(environment.apiUrl+'/statilettura')
+  }
+
+  searchOnGoogle(isbn:string)
+  {
+    /*return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=+isbn:${isbn}`)*/
+
+    return this.http.get<Book[]>(`https://www.googleapis.com/books/v1/volumes?q=+isbn:${isbn}`)
+    .pipe(
+      map( (r:any) => r.items.map( (item:any) => {
+        return {
+          id:0,
+          isbn:isbn,
+          title:item.volumeInfo.title,
+          authors:item.volumeInfo.authors,
+          description:item.volumeInfo.description,
+          categories:item.volumeInfo.categories,
+          image:item.volumeInfo.imageLinks.thumbnail,
+          stars:0,
+          readingState:'Da Leggere'
+        }
+      })
+    ))
   }
 }
