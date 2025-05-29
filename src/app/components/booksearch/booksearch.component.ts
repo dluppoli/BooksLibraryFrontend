@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Book } from '../models/Book';
-import { BookService } from '../services/book.service';
+import { Book } from '../../models/Book';
+import { BookService } from '../../services/book.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
