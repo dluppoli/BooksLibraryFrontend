@@ -1,0 +1,8 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div>
+        <input class="form-control" type="text" [(ngModel)]="username" placeholder="Username"/>
+        <input class="form-control my-3" type="password" [(ngModel)]="password" placeholder="Password" />
+        <p class="text-danger">{{error}}</p>
+        <button class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+</div>
