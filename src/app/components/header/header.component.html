@@ -1,7 +1,12 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid align-items-center">
     <span class="navbar-brand mb-0 h1"><a class="navbar-brand" routerLink="/">Books Library</a></span>
-    <i class="bi bi-plus-circle text-success h3" routerLink="/libri/cerca"></i>
-    <button class="btn btn-sm btn-secondary" (click)="logout()">Logout</button>
+    
+    
+    <div>
+      <i class="bi bi-plus-circle text-success h4" routerLink="/libri/cerca"></i>
+      <span class="mx-4">Ciao <b>{{username}}</b></span>
+      <button class="btn btn-sm btn-secondary" (click)="logout()">Logout</button>
+    </div>
   </div>
 </nav>

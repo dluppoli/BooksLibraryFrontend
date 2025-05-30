@@ -17,4 +17,9 @@ export class HeaderComponent {
       this.router.navigate(['login'])
     )
   }
+
+  get username()
+  {
+    return this.authService.getNameFromToken();
+  }
 }
